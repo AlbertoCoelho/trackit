@@ -1,8 +1,17 @@
-
+import { Wrapper,Container,Logo,StyledLink } from "./style";
+import LoginLogo from "../../assets/LoginImage.svg";
 
 const Login = () => {
   return (
-    <h1>Minha linda página de login</h1>
+    <Wrapper>
+      <Container>
+        <Logo src={LoginLogo} alt="Logo" />
+        <form>
+
+        </form>
+        <StyledLink to="/signup">Já possuí uma conta? Entre</StyledLink>
+      </Container>
+    </Wrapper>
   );
 }
 
