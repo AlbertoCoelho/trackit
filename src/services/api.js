@@ -7,3 +7,7 @@ export const api = axios.create({
 export const makeSignUp = async (formData) => {
   return api.post("/sign-up",formData)
 }
+
+export const makeLogin = async (formData) => {
+  return api.post("/login",formData)
+}

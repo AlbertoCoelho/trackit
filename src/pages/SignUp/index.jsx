@@ -91,7 +91,7 @@ const SignUp = () => {
             disabled={isLoading.disabled && "disabled"}
             required
           />
-          <Button type="submit" disableButton={isLoading.disabled} disabled={isLoading.disabled && "disabled"}>
+          <Button type="submit" disableButton={isLoading.disabled}>
             {isLoading.placeholder}
           </Button>
         </form>

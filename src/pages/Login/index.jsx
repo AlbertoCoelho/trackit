@@ -7,6 +7,9 @@ import Loading from "../../components/Loading";
 import { Wrapper,Container,Logo,StyledLink } from "./style";
 import LoginLogo from "../../assets/Logo.svg";
 
+import { AuthContext } from '../../contexts/auth'
+import { useContext } from 'react';
+
 const Login = () => {
 
   const [ formData, setFormData ] = useState({
@@ -14,15 +17,14 @@ const Login = () => {
     password:""
   });
   const [isLoading, setIsLoading] = useState( {placeholder: "Entrar", disabled: false} );
+  const { login } = useContext(AuthContext);
 
   const handleLogin = (e) => {
     e.preventDefault();
     console.log('submit', formData);
 
-    // login(formData.email,formData.password,isLoading,setIsLoading);
+    login(formData.email,formData.password,isLoading,setIsLoading);
     // image(formData.email,formData.password);
-    console.log(formData.email);
-    console.log(formData.password);
 
     isLoading.placeholder = <Loading />
     isLoading.disabled = true;
@@ -56,7 +58,7 @@ const Login = () => {
             disabled={isLoading.disabled && "disabled"}
             required
           />
-          <Button type="submit" disableButton={isLoading.disabled} disabled={isLoading.disabled && "disabled"}>
+          <Button type="submit" disableButton={isLoading.disabled}>
             {isLoading.placeholder}
           </Button>
         </form>
