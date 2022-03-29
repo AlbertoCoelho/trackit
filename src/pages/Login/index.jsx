@@ -1,5 +1,5 @@
 import { Wrapper,Container,Logo,StyledLink } from "./style";
-import LoginLogo from "../../assets/LoginImage.svg";
+import LoginLogo from "../../assets/Logo.svg";
 
 const Login = () => {
   return (
