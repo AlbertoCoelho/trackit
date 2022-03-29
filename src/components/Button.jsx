@@ -21,7 +21,8 @@ const Button = styled.button(({ active,disableButton }) => `
   padding: 14px;
   border-radius: 4px;
   border: none;
-  cursor: ${ disableButton ? 'default' : 'pointer' };
+  cursor: ${ disableButton ? 'not-allowed' : 'pointer' };
+  pointer-events: ${ disableButton ? 'none' : 'auto'};
 `);
 
 export default Button;
