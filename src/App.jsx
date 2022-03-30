@@ -4,10 +4,13 @@ import { useContext } from "react";
 import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
 import Today from "./pages/Today";
+import Habits from "./pages/Habits";
+import Historic from "./pages/Historic";
 
 import GlobalStyle from "./styles/GlobalStyle";
 
 import { AuthProvider, AuthContext } from './contexts/auth';
+import { UserDataProvider } from "./contexts/data";
 
 
 
@@ -26,12 +29,16 @@ const App = () => {
   return (
     <Router>
       <AuthProvider>
-        <Routes>
-          <Route exact path="/" element={<Login />} />
-          <Route exact path="/signup" element={<SignUp />} />
-          <Route exact path="/today" element={<Private> <Today /> </Private>} />
-        </Routes>
-        <GlobalStyle />
+        <UserDataProvider>
+          <Routes>
+            <Route exact path="/" element={<Login />} />
+            <Route path="/signup" element={<SignUp />} />
+            <Route path="/today" element={<Private> <Today /> </Private>} />
+            <Route path="/habits" element={<Private> <Habits /> </Private>} />
+            <Route path="/historic" element={<Private> <Historic /> </Private>} />
+          </Routes>
+          <GlobalStyle />
+        </UserDataProvider>
       </AuthProvider>
     </Router>
   );

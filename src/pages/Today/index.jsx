@@ -1,8 +1,12 @@
-
+import Header from "../../components/Header";
+import Menu from "../../components/Menu";
 
 const Today = () => {
   return (
-    <h1>Minha linda página Today</h1>
+    <>
+      <Header />
+      <Menu />
+    </>
   )
 }
 

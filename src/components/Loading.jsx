@@ -1,11 +1,12 @@
-import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
-import Loader from "react-loader-spinner";
+// import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+// import Loader from "react-loader-spinner";
+import {ThreeDots} from "react-loader-spinner";
 
 
 const Loading = () => {
   return (
     <div align='center'>
-      <Loader 
+      <ThreeDots 
         type="ThreeDots"
         color="#FFFFFF"
         height={100}

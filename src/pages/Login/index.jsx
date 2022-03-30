@@ -8,6 +8,7 @@ import { Wrapper,Container,Logo,StyledLink } from "./style";
 import LoginLogo from "../../assets/Logo.svg";
 
 import { AuthContext } from '../../contexts/auth'
+import { userDataContext } from '../../contexts/data';
 import { useContext } from 'react';
 
 const Login = () => {
@@ -18,13 +19,13 @@ const Login = () => {
   });
   const [isLoading, setIsLoading] = useState( {placeholder: "Entrar", disabled: false} );
   const { login } = useContext(AuthContext);
+  const { image } = useContext(userDataContext);
 
   const handleLogin = (e) => {
     e.preventDefault();
-    console.log('submit', formData);
 
     login(formData.email,formData.password,isLoading,setIsLoading);
-    // image(formData.email,formData.password);
+    image(formData.email,formData.password);
 
     isLoading.placeholder = <Loading />
     isLoading.disabled = true;

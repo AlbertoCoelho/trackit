@@ -1,9 +1,14 @@
 import styled from 'styled-components';
+import { useContext } from 'react';
+import { userDataContext } from "../contexts/data";
 
 const Header = () => {
+  const { userImage } = useContext(userDataContext);
+
   return (
     <HeaderComponent>
       <h1>TrackIt</h1>
+      <img src={userImage} alt="UserImage"/>
     </HeaderComponent>
   );
 }
