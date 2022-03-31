@@ -25,6 +25,7 @@ const Input = styled.input`
 
   &::disabled {
     background-color: #F2F2F2;
+    color: #AFAFAF;
   }
 `;
 

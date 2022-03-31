@@ -6,6 +6,7 @@ export const userDataContext = createContext();
 
 export const UserDataProvider = ( {children} ) => {
   const [userImage,setUserImage] = useState('');
+  const [percentHabits,setPercentHabits] = useState(0);
 
   const image = async (email,password) => {
     try{
@@ -17,7 +18,7 @@ export const UserDataProvider = ( {children} ) => {
   }
 
   return (
-    <userDataContext.Provider value= { { image,userImage } }>
+    <userDataContext.Provider value= { { image,userImage,percentHabits,setPercentHabits } }>
       {children}
     </userDataContext.Provider>
   )

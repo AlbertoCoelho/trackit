@@ -46,7 +46,7 @@ const MenuComponent = styled.div`
     width: 80px;
     height: 80px;
 
-    margin-bottom: 10px;
+    margin-bottom: 45px;
     width: 91px;
     height: 91px;
     border-radius: 45px;
@@ -78,16 +78,5 @@ const Button = styled.button`
     text-align: center;
   }
 `
-
-// const CircularProgressbarWrapper = styled.div`
-//     width: 80px;
-//     height: 80px;
-
-//     display: flex;
-//     justify-content: center;
-//     align-items: center;
-
-//     cursor: pointer;
-// `;
 
 export default Menu;
