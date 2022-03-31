@@ -27,7 +27,7 @@ const Login = () => {
     login(formData.email,formData.password,isLoading,setIsLoading);
     image(formData.email,formData.password);
 
-    isLoading.placeholder = <Loading />
+    isLoading.placeholder = <Loading height={100} width={100} />
     isLoading.disabled = true;
     setIsLoading({...isLoading});
   }

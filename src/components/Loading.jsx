@@ -1,20 +1,27 @@
 // import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 // import Loader from "react-loader-spinner";
 import {ThreeDots} from "react-loader-spinner";
+import styled from "styled-components";
 
 
-const Loading = () => {
+const Loading = ({height,width}) => {
   return (
-    <div align='center'>
+    <Wrapper>
       <ThreeDots 
         type="ThreeDots"
         color="#FFFFFF"
-        height={100}
-        width={100}
+        height={height}
+        width={width}
         timeout={3000} //3 secs
       />
-    </div>
+    </Wrapper>
   )
 }
+
+const Wrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`
 
 export default Loading;

@@ -1,11 +1,17 @@
 import { useState } from 'react';
 import styled from 'styled-components';
 
-const Weekday = ({day}) => {
+const Weekday = ({day,index,days,setDays}) => {
   const [isSelected,setIsSelected] = useState(false);
 
   function actionWeekday(){
     isSelected ? setIsSelected(false) : setIsSelected(true);
+    if(days.find(seatId => seatId === index )){
+      days.splice(days.indexOf(index),1);
+    } else {
+      days.push(index);
+    }
+    setDays([...days]);
   }
 
   return (

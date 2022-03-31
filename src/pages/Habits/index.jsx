@@ -20,7 +20,7 @@ const Habits = () => {
           </Title>
           <Button onClick={() => setCreateHabit(true)}>+</Button>
         </HabitsInformation>
-        {createHabit && <CreateHabit />}
+        {createHabit && <CreateHabit setCreateHabit={setCreateHabit} />}
       </HabitsContainer>
       <Menu />
     </>

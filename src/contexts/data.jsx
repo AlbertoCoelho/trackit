@@ -13,7 +13,7 @@ export const UserDataProvider = ( {children} ) => {
       const response = await getData(email,password);
       setUserImage(response.data.image);
     } catch{
-      alert("There was an error getting the image from the server");
+      console.log("There was an error getting the image from the server");
     }
   }
 

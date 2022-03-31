@@ -25,7 +25,7 @@ const SignUp = () => {
   const handleSignUp = (e) => {
     e.preventDefault();
 
-    isLoading.placeholder = <Loading />
+    isLoading.placeholder = <Loading height={100} width={100}/>
     isLoading.disabled = true;
     setIsLoading({...isLoading});
     
