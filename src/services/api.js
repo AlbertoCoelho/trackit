@@ -12,7 +12,7 @@ export const makeLogin = async (formData) => {
   return api.post("/auth/login",formData)
 }
 
-export const getData = async(email,password) => {
+export const getData = async (email,password) => {
   return api.post("/auth/login",{email,password})
 }
 
@@ -20,10 +20,10 @@ export const makeHabit = async (addHabitPost) => {
   return api.post("/habits",addHabitPost)
 }
 
-export const getHabits = async() => {
+export const getHabits = async () => {
   return api.get("/habits");
 }
 
-export const deleteHabit = async(id) => {
-  return api.delete(`/habits/${id}`);
+export const deleteHabit = async (id) => {
+  return api.delete(`/habits/${id}`)
 }

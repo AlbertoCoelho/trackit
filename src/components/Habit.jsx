@@ -1,4 +1,6 @@
 import styled from 'styled-components';
+import { useContext } from 'react';
+import { userDataContext } from '../contexts/data';
 import { IconContext } from "react-icons";
 import { BsTrash } from "react-icons/bs";
 
@@ -7,6 +9,7 @@ import { deleteHabit } from '../services/api';
 const Habit = ({habitData}) => {
   const weekdays = ["D","S","T","Q","Q","S","S"];
   const { id,name,days } = habitData;
+  const {reload,setReload} = useContext(userDataContext);
 
   const habitDeleter = () => {
     if (window.confirm("Do you really want to delete this habit?")) {
@@ -14,6 +17,7 @@ const Habit = ({habitData}) => {
         try {
           const response = await deleteHabit(id);
           console.log(response);
+          setReload([...reload])
         } catch {
           alert("An error occurred while requesting to delete your habit!");
         }
