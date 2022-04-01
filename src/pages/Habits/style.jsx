@@ -3,13 +3,34 @@ import styled from 'styled-components';
 const HabitsContainer = styled.div`
   width: 100%;
   min-height: 100vh;
-  margin: 70px 0px 121px;
+  margin: 70px 0px 0px;
   padding: 28px 18px 0px 18px;
   background-color: #E5E5E5;
 
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  span {
+    margin-top: 29px;
+
+    font-family: 'Lexend Deca';
+    font-weight: 400;
+    font-size: 17.976px;
+
+    color: #666666;
+  }
+
+  ul {
+    width: 100%;
+
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+    margin-bottom: 121px;
+  }
 `
 
 const HabitsInformation = styled.div`

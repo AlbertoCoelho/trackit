@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import styled from 'styled-components';
 
-const Weekday = ({day,index,days,setDays}) => {
+const Weekday = ({day,index,days,setDays,loading}) => {
   const [isSelected,setIsSelected] = useState(false);
 
   function actionWeekday(){
@@ -21,7 +21,7 @@ const Weekday = ({day,index,days,setDays}) => {
   );
 }
 
-const Wrapper = styled.div(({ color }) => `
+const Wrapper = styled.div(({ color,loading }) => `
   width: 30px;
   height: 30px;
 
@@ -39,6 +39,7 @@ const Wrapper = styled.div(({ color }) => `
   font-size: 19.976px;
 
   color: ${color ? "#FFFFFF" : "#DBDBDB"};
+  pointer-events: ${ loading ? 'none' : 'auto'};
 `)
 
 export default Weekday;

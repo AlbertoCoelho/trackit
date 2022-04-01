@@ -59,7 +59,7 @@ const SaveHabit = styled.div`
   }
 `
 
-const Button = styled.button`
+const Button = styled.button(({ disableButton }) => `
   font-family: 'Lexend Deca';
   font-weight: 400;
   font-size: 15.976px;
@@ -68,7 +68,10 @@ const Button = styled.button`
   border: none;
 
   cursor: pointer;
-`
+  pointer-events: ${ disableButton ? 'none' : 'auto'};
+
+  opacity: ${ disableButton ? 0.7 : 1 };
+`)
 
 export {
   Wrapper,

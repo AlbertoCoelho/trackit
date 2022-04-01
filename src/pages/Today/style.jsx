@@ -3,7 +3,7 @@ import styled from 'styled-components';
 const TodayContainer = styled.div`
   width: 100%;
   min-height: 100vh;
-  margin: 70px 0px 121px;
+  margin: 70px 0px 0px;
   padding: 28px 18px 0px 18px;
   background-color: #E5E5E5;
 

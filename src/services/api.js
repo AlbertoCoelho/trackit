@@ -16,6 +16,10 @@ export const getData = async(email,password) => {
   return api.post("/auth/login",{email,password})
 }
 
-export const getHabits = async(addHabitPost) => {
-  return api.post("/habits",{addHabitPost})
+export const makeHabit = async (addHabitPost) => {
+  return api.post("/habits",addHabitPost)
+}
+
+export const getHabits = async() => {
+  return api.get("/habits");
 }

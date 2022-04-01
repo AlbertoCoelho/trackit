@@ -4,7 +4,7 @@ import Input from "../../components/Input";
 import Weekday from "../Weekday";
 import Loading from "../Loading";
 
-import { getHabits } from "../../services/api";
+import { makeHabit } from "../../services/api";
 
 import { Wrapper,CreateHabitContainer,Weekdays,SaveHabit,Button } from "./style";
 
@@ -27,11 +27,12 @@ const CreateHabit = ({setCreateHabit}) => {
     setLoading(true);
 
     try {
-      const response = await getHabits(addHabitPost);
+      const response = await makeHabit(addHabitPost);
       console.log(response);
       setCreateHabit(false);
       setLoading(false);
     } catch {
+      console.log(addHabitPost);
       alert("There was an error during the request!");
       setLoading(false);
     }
@@ -46,13 +47,14 @@ const CreateHabit = ({setCreateHabit}) => {
           placeholder={"nome do hábito"}
           value={habit}
           onChange={(e) => setHabit(e.target.value)}
+          disabled={ loading && "disabled" }
         />
         <Weekdays>
-          {weekdays.map( (item,index) => <Weekday key={index} day={item} index={index} days={days} setDays={setDays} />)}
+          {weekdays.map( (item,index) => <Weekday key={index} day={item} index={index} days={days} setDays={setDays} loading={loading}/>)}
         </Weekdays>
         <SaveHabit>
           <Button className="cancel" onClick={() => setCreateHabit(false)}>Cancelar</Button>
-          <Button className="save" onClick={addHabit}>
+          <Button className="save" onClick={addHabit} disableButton={loading}>
             { loading ? <Loading height={15} width={45} /> : "Salvar" }
           </Button>
         </SaveHabit>
