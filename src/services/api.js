@@ -23,3 +23,7 @@ export const makeHabit = async (addHabitPost) => {
 export const getHabits = async() => {
   return api.get("/habits");
 }
+
+export const deleteHabit = async(id) => {
+  return api.delete(`/habits/${id}`);
+}

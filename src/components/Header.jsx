@@ -29,6 +29,8 @@ const HeaderComponent = styled.div`
   background: #126BA5;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
 
+  z-index: 3;
+
   h1 {
     font-family: Playball;
     font-weight: 400;
