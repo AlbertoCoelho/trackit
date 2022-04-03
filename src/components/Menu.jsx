@@ -25,6 +25,7 @@ const Menu = () => {
     <MenuComponent>
       <Button onClick={() => navigate("/habits")}><span>Hábitos</span></Button>
         <div className="circularProgressBarBox" onClick={() => navigate("/today")}>
+          <div className="circularProgress">
             <CircularProgressbar
               value={percentHabits}
               text={"Hoje"}
@@ -32,9 +33,10 @@ const Menu = () => {
                   textColor: "#fff",
                   textSize: '17.976px',
                   trailColor: `rgba(0,0,0,0.0)`,
-                  pathColor: "#52B6FF"
+                  pathColor: "#FFF"
               })} 
             />
+          </div>
         </div>
       <Button onClick={() => navigate("/historic")}><span>Histórico</span></Button>
     </MenuComponent>
@@ -58,8 +60,12 @@ const MenuComponent = styled.div`
   left: 0;
 
   .circularProgressBarBox {
-    width: 80px;
-    height: 80px;
+    width: 91px;
+    height: 91px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     margin-bottom: 45px;
     width: 91px;
@@ -75,6 +81,11 @@ const MenuComponent = styled.div`
     line-height: 22px;
 
     cursor: pointer;
+  }
+
+  .circularProgress {
+    width: 80px;
+    height: 80px;
   }
 `
 
