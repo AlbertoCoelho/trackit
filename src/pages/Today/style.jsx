@@ -10,6 +10,16 @@ const TodayContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  ul {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 28px;
+    margin-bottom: 121px;
+  }
 `
 
 const DayInformation = styled.div`
