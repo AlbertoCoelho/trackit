@@ -36,10 +36,10 @@ export const getHabitToday = () => {
   return api.get("/habits/today");
 }
 
-export const markHabit = (id) => {
+export const markHabit = async (id) => {
   return api.post(`/habits/${id}/check`)
 }
 
-export const markOffHabit = (id) => {
+export const markOffHabit = async (id) => {
   return api.post(`/habits/${id}/uncheck`)
 }

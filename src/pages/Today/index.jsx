@@ -4,6 +4,7 @@ import { userDataContext } from '../../contexts/data';
 import Header from "../../components/Header";
 import Menu from "../../components/Menu";
 import HabitToday from '../../components/HabitToday';
+import LoadingPlane from '../../components/LoadingPlane';
 
 import { getHabitsToday } from '../../services/api';
 
@@ -26,6 +27,10 @@ const Today = () => {
     }) (); 
   }, [reload]);
 
+  // if(habit.length === 0 ){
+  //   return <LoadingPlane />
+  // }
+
 
   return (
     <>
@@ -35,7 +40,12 @@ const Today = () => {
           <CurrentDate>
             {currentDay.format('dddd, DD/MM')}
           </CurrentDate>
-          <ProgressOfHabits color={percentHabits}> {percentHabits > 0 ? `${percentHabits}% dos hábitos concluídos` : 'Nenhum hábito concluído ainda'} </ProgressOfHabits>
+          <ProgressOfHabits color={percentHabits}> 
+          {habit.length > 0 ?
+            <span>{percentHabits > 0 ? `${percentHabits}% dos hábitos concluídos` : 'Nenhum hábito concluído ainda'}</span> 
+            : <LoadingPlane />
+          }
+          </ProgressOfHabits>
           { habit.length > 0 && 
             <ul>{habit.map( item => <HabitToday key={item.id} habit={item}/> )}</ul>
           }
