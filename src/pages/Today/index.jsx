@@ -27,11 +27,6 @@ const Today = () => {
     }) (); 
   }, [reload]);
 
-  // if(habit.length === 0 ){
-  //   return <LoadingPlane />
-  // }
-
-
   return (
     <>
       <Header />
@@ -41,10 +36,7 @@ const Today = () => {
             {currentDay.format('dddd, DD/MM')}
           </CurrentDate>
           <ProgressOfHabits color={percentHabits}> 
-          {habit.length > 0 ?
-            <span>{percentHabits > 0 ? `${percentHabits}% dos hábitos concluídos` : 'Nenhum hábito concluído ainda'}</span> 
-            : <LoadingPlane />
-          }
+           {percentHabits > 0 ? `${percentHabits}% dos hábitos concluídos` : 'Nenhum hábito concluído ainda'} 
           </ProgressOfHabits>
           { habit.length > 0 && 
             <ul>{habit.map( item => <HabitToday key={item.id} habit={item}/> )}</ul>

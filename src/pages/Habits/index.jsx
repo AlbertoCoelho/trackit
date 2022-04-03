@@ -4,7 +4,6 @@ import Header from "../../components/Header";
 import Menu from '../../components/Menu';
 import CreateHabit from '../../components/CreateHabit';
 import Habit from '../../components/Habit';
-import LoadingPlane from '../../components/LoadingPlane';
 
 import { getHabits } from '../../services/api';
 
@@ -20,12 +19,10 @@ const Habits = () => {
 
   useEffect( () => {
     (async () => {
-      <LoadingPlane />
       const response = await getHabits();
       setHabitsCreated(response.data);
     }) (); 
   }, [reload]);
-
 
   return (
     <>
