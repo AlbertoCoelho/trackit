@@ -12,7 +12,7 @@ const Loading = ({height,width}) => {
         color="#FFFFFF"
         height={height}
         width={width}
-        timeout={3000} //3 secs
+        timeout={3000}
       />
     </Wrapper>
   )

@@ -10,6 +10,7 @@ export const AuthProvider = ( {children} ) => {
 
   const navigate = useNavigate();
   const [user, setUser] = useState(null);
+  const [loading,setLoading] = useState(true);
 
   useEffect( () => {
     const recoveredUser = localStorage.getItem('user');
@@ -19,6 +20,8 @@ export const AuthProvider = ( {children} ) => {
       setUser(JSON.parse(recoveredUser));
       api.defaults.headers.Authorization = `Bearer ${token}`;
     }
+
+    setLoading(false);
 
   }, [])
 
@@ -49,7 +52,7 @@ export const AuthProvider = ( {children} ) => {
   }
 
   return (
-    <AuthContext.Provider value= { {authenticated: !!user,user,login } }>
+    <AuthContext.Provider value= { {authenticated: !!user,user,login,loading } }>
       {children}
     </AuthContext.Provider>
   );

@@ -32,10 +32,6 @@ export const getHabitsToday = async () => {
   return api.get("/habits/today");
 }
 
-export const getHabitToday = () => {
-  return api.get("/habits/today");
-}
-
 export const markHabit = async (id) => {
   return api.post(`/habits/${id}/check`)
 }

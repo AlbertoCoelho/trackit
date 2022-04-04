@@ -4,7 +4,6 @@ import { userDataContext } from '../../contexts/data';
 import Header from "../../components/Header";
 import Menu from "../../components/Menu";
 import HabitToday from '../../components/HabitToday';
-import LoadingPlane from '../../components/LoadingPlane';
 
 import { getHabitsToday } from '../../services/api';
 

@@ -6,18 +6,21 @@ import SignUp from "./pages/SignUp";
 import Today from "./pages/Today";
 import Habits from "./pages/Habits";
 import Historic from "./pages/Historic";
+import LoadingPlane from "./components/LoadingPlane";
 
 import GlobalStyle from "./styles/GlobalStyle";
 
 import { AuthProvider, AuthContext } from './contexts/auth';
 import { UserDataProvider } from "./contexts/data";
 
-
-
 const App = () => {
 
   const Private = ( {children} ) => {
-    const { authenticated } = useContext(AuthContext);
+    const { authenticated,loading } = useContext(AuthContext);
+
+    if(loading){
+      return <LoadingPlane />
+    }
 
     if(!authenticated){
       return <Navigate to="/" />
