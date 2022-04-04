@@ -31,6 +31,12 @@ const StyledLink = styled(Link)`
   align-items: center;
   color: #52B6FF;
   margin-top: 25px;
+
+  font-family: 'Lexend Deca';
+  font-weight: 400;
+  font-size: 13.976px;
+  text-align: center;
+  text-decoration-line: underline;
 `;
 
 export {
