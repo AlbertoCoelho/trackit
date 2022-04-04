@@ -12,7 +12,7 @@ const HabitToday = ({habit}) => {
   const { id,name,done,currentSequence,highestSequence } = habit;
   const [checkDone,setCheckDone] = useState(done); 
   const [checkCurrentSequence,setCheckCurrentSequence] = useState(currentSequence);
-  const {reload,setReload,percentHabits,setPercentHabits} = useContext(userDataContext);
+  const {reload,setReload,setPercentHabits} = useContext(userDataContext);
 
 
   const completeHabit = () => {
@@ -24,27 +24,17 @@ const HabitToday = ({habit}) => {
           setCheckDone(false);
           setCheckCurrentSequence(checkCurrentSequence - 1);
           setReload([...reload])
+
+          const responseHabits = await getHabitsToday();
+          const habitsDone = responseHabits.data.filter(item => item.done === true).length;
+          const totalHabits = responseHabits.data.length;
+          setPercentHabits((habitsDone/totalHabits).toFixed(2) *100);
+          setReload([...reload]);
         } catch(error) {
           console.log(error.response);
         }
       }
-
-      const percentHabit = async () => {
-        try {
-          const response = await getHabitsToday();
-          const habitsDone = response.data.filter(item => item.done === true).length;
-          const totalHabits = response.data.length;
-          setPercentHabits((habitsDone/totalHabits).toFixed(2) *100);
-          setPercentHabits(...percentHabits)
-          console.log(percentHabits);
-          setReload([...reload]);
-        } catch{
-          console.log("erro 1");
-        }
-      }
-
       complete();
-      percentHabit();
     }
 
     else {
@@ -55,27 +45,17 @@ const HabitToday = ({habit}) => {
           setCheckDone(true);
           setCheckCurrentSequence(checkCurrentSequence + 1);
           setReload([...reload]);
+
+          const responseHabits = await getHabitsToday();
+          const habitsDone = responseHabits.data.filter(item => item.done === true).length;
+          const totalHabits = responseHabits.data.length;
+          setPercentHabits((habitsDone/totalHabits).toFixed(2) *100);
+          setReload([...reload]);
         } catch {
           alert("An error occurred while trying to mark the habit");
         }
       }
-
-      const percentHabit = async () => {
-        try {
-          const response = await getHabitsToday();
-          const habitsDone = response.data.filter(item => item.done === true).length;
-          const totalHabits = response.data.length;
-          setPercentHabits((habitsDone/totalHabits).toFixed(2) *100);
-          setPercentHabits(...percentHabit);
-          console.log(percentHabits);
-          setReload([...reload]);
-        } catch{
-          console.log("erro 2");
-        }
-      }
-
       uncomplete();
-      percentHabit();
     }
   }
 
@@ -83,8 +63,8 @@ const HabitToday = ({habit}) => {
     <HabitComponent>
       <h1>{name}</h1>
       <SequenceAndRecordText>
-        <h2>Sequência atual: <SequenceText check={checkDone}>{currentSequence} dias</SequenceText> </h2>
-        <h2>Seu recorde: <RecordText current={currentSequence} record={highestSequence}>{highestSequence} dias</RecordText></h2>
+        <h2>Sequência atual: <SequenceText check={checkDone}>{currentSequence} {currentSequence > 1 ? "dias" : "dia"}</SequenceText> </h2>
+        <h2>Seu recorde: <RecordText current={currentSequence} record={highestSequence}>{highestSequence} {highestSequence > 1 ? "dias" : "dia"}</RecordText></h2>
       </SequenceAndRecordText>
       <ImCheckboxCheckedWrap onClick={completeHabit}>
         <IconContext.Provider value={{ color: `${checkDone ? "#8FC549" : "#EBEBEB" }` , className: "global-class-name", size: "4em" }}>

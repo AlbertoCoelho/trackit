@@ -11,12 +11,14 @@ import LoadingPlane from "./components/LoadingPlane";
 import GlobalStyle from "./styles/GlobalStyle";
 
 import { AuthProvider, AuthContext } from './contexts/auth';
-import { UserDataProvider } from "./contexts/data";
+import { UserDataProvider,userDataContext } from "./contexts/data";
 
 const App = () => {
 
   const Private = ( {children} ) => {
-    const { authenticated,loading } = useContext(AuthContext);
+    const { authenticated,loading,user } = useContext(AuthContext);
+    console.log(user);
+    const { image } = useContext(userDataContext);
 
     if(loading){
       return <LoadingPlane />

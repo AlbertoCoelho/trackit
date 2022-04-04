@@ -1,8 +1,6 @@
 import { useNavigate } from "react-router-dom";
-import { useEffect,useContext } from 'react';
+import { useContext } from 'react';
 import { userDataContext } from "../contexts/data";
-
-import { getHabitsToday } from "../services/api";
 
 import styled from 'styled-components';
 import { CircularProgressbar,buildStyles  } from 'react-circular-progressbar';
@@ -10,16 +8,7 @@ import 'react-circular-progressbar/dist/styles.css';
 
 const Menu = () => {
   const navigate = useNavigate();
-  const { percentHabits,setPercentHabits } = useContext(userDataContext);
-
-  useEffect( () => {
-    (async () => {
-      const response = await getHabitsToday();
-      const habitsDone = response.data.filter(item => item.done === true).length;
-      const totalHabits = response.data.length;
-      setPercentHabits((habitsDone/totalHabits)*100);
-    }) (); 
-  }, [setPercentHabits]);
+  const { percentHabits } = useContext(userDataContext);
 
   return (
     <MenuComponent>
