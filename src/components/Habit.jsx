@@ -82,7 +82,7 @@ const Weekday = styled.div(({ color }) => `
   justify-content: center;
   align-items: center;
 
-  background-color: ${color ? "#CFCFCF" : "#FFFFFF"};
+  background-color: ${color ? "#FFFFFF" : "#CFCFCF"};
   border: 1px solid #D5D5D5;
   box-sizing: border-box;
   border-radius: 5px;
@@ -91,7 +91,7 @@ const Weekday = styled.div(({ color }) => `
   font-weight: 400;
   font-size: 19.976px;
 
-  color: ${color ? "#FFFFFF" : "#DBDBDB"};
+  color: ${color ? "#DBDBDB" : "#FFFFFF"};
 `)
 
 const BsTrashWrap = styled.div`
