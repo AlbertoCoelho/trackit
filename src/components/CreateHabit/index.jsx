@@ -22,7 +22,9 @@ const CreateHabit = ({setCreateHabit}) => {
     days: days
   }
 
-  const addHabit = async () => {
+  const addHabit = async (e) => {
+    e.preventDefault();
+
     if(habit === '' || days.length=== 0){
       return alert("Please make it a habit by filling in all the information!");
     }
@@ -50,16 +52,19 @@ const CreateHabit = ({setCreateHabit}) => {
           value={habit}
           onChange={(e) => setHabit(e.target.value)}
           disabled={ loading && "disabled" }
+          required
         />
         <Weekdays>
           {weekdays.map( (item,index) => <Weekday key={index} day={item} index={index} days={days} setDays={setDays} loading={loading}/>)}
         </Weekdays>
-        <SaveHabit>
-          <Button className="cancel" onClick={() => setCreateHabit(false)}>Cancelar</Button>
-          <Button className="save" onClick={addHabit} disableButton={loading}>
-            { loading ? <Loading height={15} width={45} /> : "Salvar" }
-          </Button>
-        </SaveHabit>
+        <form onSubmit={addHabit}>
+          <SaveHabit >
+            <Button type="button" className="cancel" onClick={() => setCreateHabit(false)}>Cancelar</Button>
+            <Button type="submit" className="save" disableButton={loading}>
+              { loading ? <Loading height={15} width={45} /> : "Salvar" }
+            </Button>
+          </SaveHabit>
+        </form>
       </CreateHabitContainer>
     </Wrapper>
   );
