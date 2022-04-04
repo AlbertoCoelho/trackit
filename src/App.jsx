@@ -16,11 +16,10 @@ import { UserDataProvider,userDataContext } from "./contexts/data";
 const App = () => {
 
   const Private = ( {children} ) => {
-    const { authenticated,loading,user } = useContext(AuthContext);
-    console.log(user);
-    const { image } = useContext(userDataContext);
+    const { authenticated,loading } = useContext(AuthContext);
+    const { recovered } = useContext(userDataContext);
 
-    if(loading){
+    if(loading && recovered){
       return <LoadingPlane />
     }
 
