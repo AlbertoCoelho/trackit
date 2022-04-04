@@ -96,6 +96,11 @@ const HabitComponent = styled.li`
     font-size: 19.976px;
 
     color: #666666;
+
+    max-width: 240px; // Limite maximo do texto
+    white-space: nowrap; // Removendo quebra de linha
+    overflow: hidden; // Removendo a barra de rolagem
+    text-overflow: ellipsis; // Adicionando "..." ao final do texto
   }
 
   h2 {
