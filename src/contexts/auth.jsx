@@ -51,8 +51,17 @@ export const AuthProvider = ( {children} ) => {
     }
   }
 
+  const logout = () => {
+    localStorage.removeItem("user");
+    localStorage.removeItem("token");      
+    api.defaults.headers.Authorization = null;
+
+    setUser(null);
+    navigate("/");
+  }
+
   return (
-    <AuthContext.Provider value= { {authenticated: !!user,user,login,loading } }>
+    <AuthContext.Provider value= { {authenticated: !!user,user,login,logout,loading } }>
       {children}
     </AuthContext.Provider>
   );

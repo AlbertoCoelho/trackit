@@ -1,14 +1,23 @@
 import styled from 'styled-components';
 import { useContext } from 'react';
 import { userDataContext } from "../contexts/data";
+import { AuthContext } from '../contexts/auth';
 
 const Header = () => {
   const { userImage } = useContext(userDataContext);
+  const { logout } = useContext(AuthContext);
+
+  const handleLogout = () => {
+    logout();
+  }
 
   return (
     <HeaderComponent>
       <h1>TrackIt</h1>
-      <img src={userImage} alt="UserImage"/>
+      <TitleImage>
+        <p onClick={handleLogout}>Logout</p>
+        <img src={userImage} alt="UserImage"/>
+      </TitleImage>
     </HeaderComponent>
   );
 }
@@ -38,13 +47,30 @@ const HeaderComponent = styled.div`
     line-height: 49px;
     color: #FFFFFF;
   }
+`;
+
+const TitleImage = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  p {
+    font-family: 'Lexend Deca';
+    font-weight: 400;
+    font-size: 22.976px;
+
+    color: #FFF;
+    cursor: pointer;
+
+    padding-right: 13px;
+  }
 
   img {
     width: 51px;
     height: 51px;
     border-radius: 98.5px;
   }
-`;
+`
 
 
 export default Header;
